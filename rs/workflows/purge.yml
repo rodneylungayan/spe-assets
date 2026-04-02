@@ -1,0 +1,33 @@
+name: Minify and Purge
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'rs/**'
+
+jobs:
+  build-and-purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Minify JS and CSS
+        uses: nance-m/minify-action@v1.1.0
+        with:
+          source: 'rs'
+          dest: 'rs'
+
+      - name: Push minified files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add rs/*.min.css rs/*.min.js
+          git commit -m "Auto-minify assets" || echo "No changes to commit"
+          git push
+
+      - name: Purge jsDelivr Cache
+        run: |
+          curl -X POST https://purge.jsdelivr.net/gh/rodneylungayan/spe-assets@main/rs/blog-styles.min.css
+          curl -X POST https://purge.jsdelivr.net/gh/rodneylungayan/spe-assets@main/rs/blog-scripts.min.js
