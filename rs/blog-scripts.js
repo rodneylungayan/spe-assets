@@ -118,3 +118,49 @@ document.addEventListener("DOMContentLoaded", () => {
         target.after(nav);
     }
 });
+
+ (function() {
+    const AUTHOR_NAME = "Dr. Ravi Somayazula";
+    const TARGET_SELECTOR = ".blog-post-item-content";
+    const DATE_SELECTOR = ".blog-date";
+
+    function doInjection() {
+        const posts = document.querySelectorAll(TARGET_SELECTOR);
+        
+        posts.forEach(post => {
+            // Check if already injected to prevent duplicates
+            if (post.querySelector('.blog-author-inserted')) return;
+
+            const dateEl = post.querySelector(DATE_SELECTOR);
+            if (dateEl) {
+                const authorP = document.createElement("p");
+                authorP.className = "blog-author-inserted";
+                authorP.style.cssText = "color: rgb(93, 108, 110); margin-top: 8px;";
+                authorP.innerHTML = `<em>Written by ${AUTHOR_NAME}</em>`;
+                
+                dateEl.after(authorP);
+            }
+        });
+    }
+
+    // 1. Run immediately on load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', doInjection);
+    } else {
+        doInjection();
+    }
+
+    // 2. Watch for changes (Pagination/Filtering)
+    const container = document.querySelector(".regular-posts-grid");
+    if (container) {
+        const observer = new MutationObserver((mutations) => {
+            // Re-run injection if nodes are added
+            doInjection();
+        });
+
+        observer.observe(container, {
+            childList: true,
+            subtree: true
+        });
+    }
+})();
