@@ -2,7 +2,7 @@ name: Minify and Purge
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'rs/**'
 
@@ -29,5 +29,5 @@ jobs:
 
       - name: Purge jsDelivr Cache
         run: |
-          curl -X POST https://purge.jsdelivr.net/gh/rodneylungayan/spe-assets@main/rs/blog-styles.min.css
-          curl -X POST https://purge.jsdelivr.net/gh/rodneylungayan/spe-assets@main/rs/blog-scripts.min.js
+          curl -X POST https://purge.jsdelivr.net/gh/rodneylungayan/spe-assets@master/rs/blog-styles.min.css
+          curl -X POST https://purge.jsdelivr.net/gh/rodneylungayan/spe-assets@master/rs/blog-scripts.min.js
