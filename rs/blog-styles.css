@@ -9,9 +9,6 @@
   display: none !important;
 }
 
-.featured-blog-post.blog-post-item {
-  display: block !important;
-}
 .featured-blog-post-content h2 {
   font-size: 3rem;
   color: #fff !important;
