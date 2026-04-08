@@ -45,3 +45,22 @@ document.addEventListener("DOMContentLoaded", function () {
     title.insertAdjacentElement("afterend", metaContainer);
   }
 });
+
+
+// physically moves the tags container immediately before the surgeon section
+document.addEventListener('readystatechange', () => {
+    if (document.readyState === 'complete') {
+        const surgeon = document.querySelector('.free-form-238b005a-f99d-4ed9-a70d-e9edcd9fcf14');
+        const tags = document.querySelector('.blog-post-tags-page-container');
+
+        if (surgeon && tags) {
+            // This physically moves the tags container immediately before the surgeon section
+            surgeon.before(tags);
+            
+            // Force a small layout check
+            console.log('DOM updated: Tags moved before the surgeon section.');
+        } else {
+            console.log('Elements not found for relocation.');
+        }
+    }
+});
