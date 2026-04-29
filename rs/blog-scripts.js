@@ -166,12 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    // Show the share row for the last post on the page
-    const shareRows = document.querySelectorAll(".blog-share-row");
-    
-    if (shareRows.length > 0) {
-        const lastShare = shareRows[shareRows.length - 1];
-        lastShare.style.display = "block";
-    }
+ 
 
 })();
