@@ -1,39 +1,36 @@
-.blog-filter-wrapper.blog-post-container, .featured-blog-post.blog-post-item {
+.blog-filter-wrapper.blog-post-container,
+.featured-blog-post.blog-post-item {
   display: none !important;
 }
 
-
 .meta-inserted {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .meta-inserted p {
-    color: #fff;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    letter-spacing: 1px;
-    justify-content: center;
+  color: #fff;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
+  justify-content: center;
 }
 
 .meta-inserted .date-stamp {
-  
 }
 
 /* Creating the separator */
 .meta-inserted .date-stamp::after {
-    content: "|";
-    margin: 0 12px;
-    color: #cbd5e0;
-    font-weight: 300;
+  content: "|";
+  margin: 0 12px;
+  color: #cbd5e0;
+  font-weight: 300;
 }
 
 .meta-inserted .author-name {
-    text-transform: none;
-    letter-spacing: 0;
+  text-transform: none;
+  letter-spacing: 0;
 }
-
-
 
 /* FAQ's */
 .accordion__question {
@@ -74,3 +71,15 @@
   margin-top: 5px;
 }
 /* End FAQ's */
+
+/* Remove meta data readtime and published date on each component and remove the share */
+
+.blog-page-date-published {
+  display: none;
+}
+.read-time {
+  display: none;
+}
+.blog-share-row {
+  display: none;
+}
