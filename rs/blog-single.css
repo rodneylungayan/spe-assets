@@ -74,7 +74,7 @@
 
 /* Remove meta data readtime and published date on each component and remove the share */
 
-.blog-page-date-published {
+/* .blog-page-date-published {
   display: none;
 }
 .read-time {
@@ -82,4 +82,4 @@
 }
 .blog-share-row {
   display: none;
-}
+} */
