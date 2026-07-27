@@ -1,5 +1,4 @@
-.blog-filter-wrapper.blog-post-container,
-.featured-blog-post.blog-post-item {
+.blog-filter-wrapper.blog-post-container{
   display: none !important;
 }
 
